@@ -1,0 +1,40 @@
+:root{
+--accent:#0d6efd;
+--card-bg:#ffffff;
+--muted:#6c757d;
+}
+
+
+body{
+background: linear-gradient(180deg, #f8f9fa 0%, #eef2f6 100%);
+min-height:100vh;
+}
+
+
+/* Top welcome banner */
+.hero {
+background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(13,110,253,0.02));
+border-radius: .6rem;
+padding: 1.25rem;
+box-shadow: 0 6px 18px rgba(13,110,253,0.04);
+}
+
+
+.profile-avatar{
+width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+
+.card-compact{border-radius:.6rem;box-shadow:0 6px 18px rgba(22,28,37,0.04)}
+
+
+/* make cards a bit smaller on large screens */
+@media(min-width:1200px){
+.col-card-lg{flex:0 0 24%;max-width:24%}
+}
+
+
+/* center the small quick-links grid */
+.quick-link{min-height:92px;display:flex;align-items:center;justify-content:flex-start;gap:.8rem}
+
+

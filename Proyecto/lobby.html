@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lobby - Universidad</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+      :root{
+        --accent:#0d6efd;
+        --card-bg:#ffffff;
+        --muted:#6c757d;
+      }
+
+      body{
+        background: linear-gradient(180deg, #f8f9fa 0%, #eef2f6 100%);
+        min-height:100vh;
+      }
+
+      /* Top welcome banner */
+      .hero {
+        background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(13,110,253,0.02));
+        border-radius: .6rem;
+        padding: 1.25rem;
+        box-shadow: 0 6px 18px rgba(13,110,253,0.04);
+      }
+
+      .profile-avatar{
+        width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      }
+
+      .card-compact{border-radius:.6rem;box-shadow:0 6px 18px rgba(22,28,37,0.04)}
+
+      /* make cards a bit smaller on large screens */
+      @media(min-width:1200px){
+        .col-card-lg{flex:0 0 24%;max-width:24%}
+      }
+
+      /* center the small quick-links grid */
+      .quick-link{min-height:92px;display:flex;align-items:center;justify-content:flex-start;gap:.8rem}
+
+    </style>
+  </head>
+  <body>
+
+    <!-- NAVBAR (compact) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">
+            <!-- <img src="imagenes/Logo.png" alt="AmLeargning Center" width="300px" height="200px"> -->
+            AM <span style="color: #ffcc00">Learning Center</span>
+        </a>
+
+        <div class="d-flex align-items-center ms-auto gap-3">
+          <div class="text-end d-none d-md-block me-2">
+            <small class="text-muted">Bienvenido,</small>
+            <div id="usernameTop" class="fw-semibold">Estudiante</div>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm" id="btnNotifications" title="Notificaciones">
+            <i class="bi bi-bell"></i> <span id="notifBadge" class="badge bg-danger ms-1" style="display:none">0</span>
+          </button>
+
+          <div class="dropdown">
+            <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <img id="avatarImg" src="imagenes/avatar.png" alt="avatar" class="profile-avatar">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              <li><a class="dropdown-item" href="#">Configuración</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="login.html">Cerrar sesión</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="container my-4">
+      <div class="row g-4">
+
+        <!-- LEFT COLUMN: welcome banner + carousel -->
+        <div class="col-12 col-lg-8">
+
+          <div class="hero mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <img id="heroAvatar" src="imagenes/avatar.png" alt="user" class="profile-avatar">
+              <div>
+                <div class="h5 mb-0" id="greeting">Hola, Estudiante 👋</div>
+                <div class="text-muted">Bienvenido al panel de estudiante. Aquí podrás ver tus cursos, próximas actividades y noticias.</div>
+              </div>
+              <div class="ms-auto d-flex gap-2">
+                <a href="#" class="btn btn-primary">Ir a mi curso</a>
+                <a href="#" class="btn btn-outline-secondary">Soporte</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel / banner rotativo -->
+          <div id="heroCarousel" class="carousel slide mb-4 rounded card-compact" data-bs-ride="carousel">
+            <div class="carousel-inner rounded">
+              <div class="carousel-item active">
+                <img src="imagenes/ds.png" class="d-block w-100 rounded" alt="banner 1">
+                <div class="carousel-caption d-none d-md-block text-start px-3" style="bottom:18%">
+                  <h3 class="fw-bold">Construye tu futuro hoy</h3>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="imagenes/ia.jpg" class="d-block w-100 rounded" alt="banner 2">
+                <div class="carousel-caption d-none d-md-block text-start px-3" style="bottom:18%">
+                  <h3>Aprende haciendo</h3>
+                  <p>Laboratorios, proyectos reales y docentes con experiencia.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="imagenes/micro.jpg" class="d-block w-100 rounded" alt="banner 3">
+                <div class="carousel-caption d-none d-md-block text-start px-3" style="bottom:30%">
+                  <h3 class="text-black">Becas y financiamiento</h3>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+
+          <!-- Cards: cursos activos y acciones rápidas -->
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="card card-compact p-3 h-100">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-journal-bookmark" style="font-size:28px;color:var(--accent)"></i>
+                  <div>
+                    <div class="fw-semibold">Cursos activos</div>
+                    <div class="text-muted small" id="activeCourses">Cargando...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="card card-compact p-3 h-100">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-calendar-check" style="font-size:28px;color:#198754"></i>
+                  <div>
+                    <div class="fw-semibold">Próximas actividades</div>
+                    <div class="text-muted small" id="upcomingEvents">Sin eventos</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- quick links grid -->
+            <div class="col-12">
+              <div class="d-flex flex-wrap gap-3">
+                <a href="#" class="flex-grow-1 text-decoration-none">
+                  <div class="card p-3 card-compact">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-play-btn-fill fs-2 me-3"></i>
+                      <div>
+                        <div class="fw-semibold">Mis clases</div>
+                        <div class="text-muted small">Accede a tu aula virtual</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#" class="flex-grow-1 text-decoration-none">
+                  <div class="card p-3 card-compact">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-people-fill fs-2 me-3"></i>
+                      <div>
+                        <div class="fw-semibold">Tutores</div>
+                        <div class="text-muted small">Solicita apoyo académico</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#" class="flex-grow-1 text-decoration-none">
+                  <div class="card p-3 card-compact">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-building fs-2 me-3"></i>
+                      <div>
+                        <div class="fw-semibold">Bolsa de empleo</div>
+                        <div class="text-muted small">Convocatorias y prácticas</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div> <!-- FIN LEFT COL -->
+
+
+        <!-- RIGHT COLUMN: perfil, notificaciones y acceso rapido -->
+        <aside class="col-12 col-lg-4">
+
+          <div class="card p-3 mb-3 card-compact">
+            <div class="d-flex align-items-center gap-3">
+              <img id="sideAvatar" src="imagenes/avatar.png" class="profile-avatar">
+              <div>
+                <div id="studentName" class="fw-semibold">Estudiante Nombre</div>
+                <div class="text-muted small">ID: <span id="studentId">000123</span></div>
+              </div>
+              <div class="ms-auto text-end">
+                <a href="#" class="btn btn-sm btn-outline-primary">Editar Perfil</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-3 mb-3 card-compact">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="fw-semibold">Notificaciones</div>
+              <a href="#" class="small">Ver todo</a>
+            </div>
+            <ul class="list-group list-group-flush" id="notifList" style="max-height:220px;overflow:auto">
+              <li class="list-group-item small text-muted">No hay notificaciones.</li>
+            </ul>
+          </div>
+
+          <div class="card p-3 card-compact">
+            <div class="fw-semibold mb-2">Accesos rápidos</div>
+            <div class="d-grid gap-2">
+              <a href="#" class="btn btn-secondary btn-sm">Horario</a>
+              <a href="#" class="btn btn-outline-secondary btn-sm">Pagos</a>
+              <a href="#" class="btn btn-outline-secondary btn-sm">Soporte</a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </main>
+
+    <footer class="text-center py-4 text-muted small">
+      © <span id="year">2025</span> AMLearningCenter — Todos los derechos reservados
+    </footer>
+
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // === Datos de ejemplo: reemplaza con datos reales del servidor ===
+      const user = {
+        name: 'Victor Sequeira Corrales',
+        id: 'A20251234',
+        avatar: 'imagenes/avatar.png',
+        courses: [
+          { title: 'Introducción a Programación', progress: '72%' },
+          { title: 'Marketing Digital', progress: '45%' }
+        ],
+        notifications: [
+          { text: 'La clase de Bases de Datos fue reprogramada para el 8 de diciembre.' },
+          { text: 'Recuerda entregar el proyecto final antes del 12/12.' }
+        ],
+        upcoming: [ 'Examen: Matemáticas - 2025-12-09' ]
+      }
+
+      // Inyecta datos en la UI
+      document.getElementById('usernameTop').innerText = user.name.split(' ')[0]
+      document.getElementById('greeting').innerText = `Hola, ${user.name.split(' ')[0]} 👋`
+      document.getElementById('studentName').innerText = user.name
+      document.getElementById('studentId').innerText = user.id
+      document.getElementById('avatarImg').src = user.avatar
+      document.getElementById('heroAvatar').src = user.avatar
+      document.getElementById('sideAvatar').src = user.avatar
+      document.getElementById('year').innerText = new Date().getFullYear()
+
+      // Cursos activos
+      const activeCoursesEl = document.getElementById('activeCourses')
+      activeCoursesEl.innerHTML = user.courses.map(c => `<div>${c.title} <span class=\"text-muted small\">• ${c.progress}</span></div>`).join('')
+
+      // Notificaciones
+      const notifList = document.getElementById('notifList')
+      notifList.innerHTML = ''
+      if (user.notifications && user.notifications.length){
+        user.notifications.forEach(n => {
+          const li = document.createElement('li')
+          li.className = 'list-group-item small'
+          li.innerText = n.text
+          notifList.appendChild(li)
+        })
+        // badge
+        const badge = document.getElementById('notifBadge')
+        badge.innerText = user.notifications.length
+        badge.style.display = 'inline-block'
+      } else {
+        notifList.innerHTML = '<li class="list-group-item small text-muted">No hay notificaciones.</li>'
+      }
+
+      // Upcoming
+      const upcomingEl = document.getElementById('upcomingEvents')
+      upcomingEl.innerHTML = user.upcoming.length ? user.upcoming.join('<br>') : 'Sin eventos'
+
+      // Notificaciones boton
+      document.getElementById('btnNotifications').addEventListener('click', ()=>{
+        // abrir panel, o redirigir a notificaciones
+        alert('Abriendo notificaciones...')
+      })
+
+    </script>
+  </body>
+</html>
